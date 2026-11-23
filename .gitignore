@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
+.venv/
+
+# Secrets
+.streamlit/secrets.toml
+.env
+
+# IDE
+.vscode/
+
+# Temporary files
+*.log
+.DS_Store
+Thumbs.db
