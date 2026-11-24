@@ -1,0 +1,7 @@
+venv
+__pycache__
+*.pyc
+.git
+.streamlit
+model/best_ffpp.pt
+app.py
