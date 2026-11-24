@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works - CYBERGEEKS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background 3D Ambient Chromatic Orbs -->
+  <div class="liquid-ambient-canvas">
+    <div class="liquid-orb orb-primary"></div>
+    <div class="liquid-orb orb-secondary"></div>
+    <div class="liquid-orb orb-tertiary"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <!-- Injected by auth.js -->
+    </div>
+  </header>
+
+  <main class="container" style="max-width: 1050px; margin: 0 auto; padding-top: 1rem;">
+    <!-- Title Header -->
+    <div style="text-align: center; margin-bottom: 3.5rem;">
+      <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 240, 255, 0.08); border: 1px solid var(--cyan-border); padding: 0.35rem 1rem; border-radius: var(--radius-pill); font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: var(--cyan-primary); text-transform: uppercase; margin-bottom: 0.75rem;">
+        <span class="status-dot-active" style="background: var(--cyan-primary);"></span>
+        STEP-BY-STEP FORENSIC VERIFICATION
+      </div>
+      <h1 style="font-size: 2.8rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">
+        How The Detection Engine Works
+      </h1>
+      <p style="color: var(--text-silver); font-size: 1.05rem; max-width: 680px; margin: 0 auto; line-height: 1.6;">
+        From raw digital video streams to explainable forensic certificates: an inside look at our 8-stage automated spatio-temporal deep-learning pipeline.
+      </p>
+    </div>
+
+    <!-- Interactive 8-Stage Step Timeline -->
+    <div style="display: flex; flex-direction: column; gap: 1.75rem; margin-bottom: 4rem;">
+      <!-- Step 1 -->
+      <div class="card" style="padding: 2rem; display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; align-items: center; border-color: var(--cyan-border);">
+        <div style="width: 70px; height: 70px; border-radius: var(--radius-md); background: var(--cyan-subtle); border: 1px solid var(--cyan-border); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--cyan-primary); font-family: var(--font-mono);">
+          01
+        </div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.35rem;">
+            <h3 style="font-size: 1.3rem; font-weight: 700; color: #fff;">Secure Authentication &amp; Access</h3>
+            <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--cyan-primary); background: var(--cyan-subtle); padding: 0.15rem 0.5rem; border-radius: var(--radius-pill);">PORTAL ENTRANCE</span>
+          </div>
+          <p style="color: var(--text-dim); line-height: 1.6; font-size: 0.92rem;">
+            Users authenticate through secure role-based portals with optional multi-factor authentication (TOTP 2FA). Every verification session establishes a tamper-proof session token ensuring forensic chain-of-custody tracking.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="card" style="padding: 2rem; display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; align-items: center;">
+        <div style="width: 70px; height: 70px; border-radius: var(--radius-md); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #fff; font-family: var(--font-mono);">
+          02
+        </div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.35rem;">
+            <h3 style="font-size: 1.3rem; font-weight: 700; color: #fff;">Multi-Format Video Ingestion</h3>
+            <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-darker); background: rgba(255,255,255,0.06); padding: 0.15rem 0.5rem; border-radius: var(--radius-pill);">MP4 / AVI / MOV / MKV &le; 50MB</span>
+          </div>
+          <p style="color: var(--text-dim); line-height: 1.6; font-size: 0.92rem;">
+            The video is validated on client and server levels. Length (up to 60 seconds) and size limits are checked, then evenly spaced frames are sampled from the video.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="card" style="padding: 2rem; display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; align-items: center;">
+        <div style="width: 70px; height: 70px; border-radius: var(--radius-md); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #fff; font-family: var(--font-mono);">
+          03
+        </div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.35rem;">
+            <h3 style="font-size: 1.3rem; font-weight: 700; color: #fff;">Uniform Stride Frame Sampling</h3>
+            <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-darker); background: rgba(255,255,255,0.06); padding: 0.15rem 0.5rem; border-radius: var(--radius-pill);">OPENCV DECIMATION</span>
+          </div>
+          <p style="color: var(--text-dim); line-height: 1.6; font-size: 0.92rem;">
+            Hardware-accelerated OpenCV decoders sample keyframes using uniform temporal strides. By retaining chronological sequences rather than randomized images, the system preserves motion dynamics required for subsequent temporal RNN analysis.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="card" style="padding: 2rem; display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; align-items: center; border-color: rgba(139, 92, 246, 0.3);">
+        <div style="width: 70px; height: 70px; border-radius: var(--radius-md); background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.3); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #c4b5fd; font-family: var(--font-mono);">
+          04
+        </div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.35rem;">
+            <h3 style="font-size: 1.3rem; font-weight: 700; color: #fff;">Face Detection &amp; Crop</h3>
+            <span style="font-family: var(--font-mono); font-size: 0.74rem; color: #c4b5fd; background: rgba(139, 92, 246, 0.15); padding: 0.15rem 0.5rem; border-radius: var(--radius-pill);">224&times;224 NORMALIZATION</span>
+          </div>
+          <p style="color: var(--text-dim); line-height: 1.6; font-size: 0.92rem;">
+            An OpenCV Haar cascade detector finds the face in each sampled frame. Faces are cropped and resized to 224&times;224 RGB images. Frames with no face are skipped and counted separately.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="card" style="padding: 2rem; display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; align-items: center; border-color: var(--cyan-border);">
+        <div style="width: 70px; height: 70px; border-radius: var(--radius-md); background: var(--cyan-subtle); border: 1px solid var(--cyan-border); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--cyan-primary); font-family: var(--font-mono);">
+          05
+        </div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.35rem;">
+            <h3 style="font-size: 1.3rem; font-weight: 700; color: #fff;">EfficientNet-B0 Spatial Feature Extraction</h3>
+            <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--cyan-primary); background: var(--cyan-subtle); padding: 0.15rem 0.5rem; border-radius: var(--radius-pill);">1,280-DIM EMBEDDINGS</span>
+          </div>
+          <p style="color: var(--text-dim); line-height: 1.6; font-size: 0.92rem;">
+            Each cropped face tensor passes through EfficientNet-B0. The compound-scaled network inspects high-frequency spectral residuals, blending discrepancies along facial borders, and subtle GAN color distortions, generating a rich 1,280-dimensional feature embedding per frame.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="card" style="padding: 2rem; display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; align-items: center; border-color: var(--acid-border);">
+        <div style="width: 70px; height: 70px; border-radius: var(--radius-md); background: var(--acid-subtle); border: 1px solid var(--acid-border); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: var(--acid-yellow); font-family: var(--font-mono);">
+          06
+        </div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.35rem;">
+            <h3 style="font-size: 1.3rem; font-weight: 700; color: #fff;">Bidirectional LSTM Temporal Analysis</h3>
+            <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--acid-yellow); background: var(--acid-subtle); padding: 0.15rem 0.5rem; border-radius: var(--radius-pill);">256 UNITS &bull; 16 FACE FRAMES</span>
+          </div>
+          <p style="color: var(--text-dim); line-height: 1.6; font-size: 0.92rem;">
+            The sequence of 1,280-dim vectors is fed into a 256-unit BiLSTM. Looking at past and future frames together lets the network pick up flicker and inconsistencies across frames. Every frame also gets its own score, which is how suspicious frames are listed.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 7 -->
+      <div class="card" style="padding: 2rem; display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; align-items: center;">
+        <div style="width: 70px; height: 70px; border-radius: var(--radius-md); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #fff; font-family: var(--font-mono);">
+          07
+        </div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.35rem;">
+            <h3 style="font-size: 1.3rem; font-weight: 700; color: #fff;">Sigmoid Output &amp; Risk Scoring</h3>
+            <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-darker); background: rgba(255,255,255,0.06); padding: 0.15rem 0.5rem; border-radius: var(--radius-pill);">PROBABILITY % &bull; 3 TIERS</span>
+          </div>
+          <p style="color: var(--text-dim); line-height: 1.6; font-size: 0.92rem;">
+            The model outputs a fake probability from 0% to 100%. The system labels it Low Risk (&lt;35%), Medium Risk (35&ndash;60%) or High Risk (&ge;60%). A frame is called suspicious when its own score is 50% or more.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 8 -->
+      <div class="card" style="padding: 2rem; display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; align-items: center; border-color: #10b981;">
+        <div style="width: 70px; height: 70px; border-radius: var(--radius-md); background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #10b981; font-family: var(--font-mono);">
+          08
+        </div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.35rem;">
+            <h3 style="font-size: 1.3rem; font-weight: 700; color: #fff;">Forensic Audit Dossier &amp; Certification</h3>
+            <span style="font-family: var(--font-mono); font-size: 0.74rem; color: #6ee7b7; background: rgba(16, 185, 129, 0.15); padding: 0.15rem 0.5rem; border-radius: var(--radius-pill);">EXPLAINABLE REPORT</span>
+          </div>
+          <p style="color: var(--text-dim); line-height: 1.6; font-size: 0.92rem;">
+            The final output compiles the keyframe telemetry breakdown table, timeline anomaly curves, suspicious frame zoom gallery, and generates an official downloadable forensic audit PDF saved into the user's historical audit database.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align: center; margin-bottom: 5rem;">
+      <a href="detect.html" class="btn btn-primary" style="padding: 0.85rem 2.2rem; font-size: 1.05rem;">
+        Try The Pipeline in AI Detection Lab &rarr;
+      </a>
+    </div>
+  </main>
+
+  <!-- Universal Footer -->
+  <footer class="footer-cybergeeks">
+    <div class="footer-cyber-grid">
+      <div>
+        <div class="footer-brand-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-primary)" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          <span>CYBER<span style="color: var(--cyan-primary);">GEEKS</span></span>
+        </div>
+        <div class="footer-brand-tagline">Digital Trust. Intelligent Defense.</div>
+        <p class="footer-brand-desc">
+          Automated spatio-temporal deep-learning platform engineered to expose synthetic video deception, GAN face manipulation, and media fraud with frame-level explainability.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="detect.html">Detection Lab</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="login.html">Sign In / User Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Information</div>
+        <ul class="footer-links-list">
+          <li><a href="about.html">About Us &amp; Contact</a></li>
+          <li><a href="security.html">Privacy &amp; Security</a></li>
+          <li><a href="technology.html#datasets">Datasets &amp; Benchmarks</a></li>
+          <li><a href="technology.html#research">Research Papers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Contact &amp; Connect</div>
+        <ul class="footer-links-list">
+          <li>
+            <a href="mailto:wrotefiction@gmail.com" title="Email Riya Maurya" style="word-break: break-all;">
+              ✉ wrotefiction@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="mailto:udgeethkaushik7@gmail.com" title="Email Udgeeth Kaushik" style="word-break: break-all;">
+              ✉ udgeethkaushik7@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://in.linkedin.com/in/udgeeth-kaushik-a733a6327" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-primary);">
+              🔗 Udgeeth Kaushik (LinkedIn)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/riya-maurya-53b443347" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-primary);">
+              🔗 Riya Maurya (LinkedIn)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>&copy; 2026 CYBERGEEKS. AI-BASED FAKE VIDEO DETECTION SYSTEM.</div>
+      <div>Theme: AI and Cybersecurity &bull; Neural Media Forensics</div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

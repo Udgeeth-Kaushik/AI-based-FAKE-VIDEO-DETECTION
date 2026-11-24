@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Operations Console &bull; CYBERGEEKS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background 3D Ambient Chromatic Orbs -->
+  <div class="liquid-ambient-canvas">
+    <div class="liquid-orb orb-primary"></div>
+    <div class="liquid-orb orb-secondary"></div>
+    <div class="liquid-orb orb-tertiary"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <!-- Populated dynamically by auth.js -->
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Header -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(223, 255, 0, 0.12); color: var(--acid-yellow); border: 1px solid var(--acid-yellow-border); padding: 0.35rem 0.85rem; border-radius: 9999px; font-size: 0.78rem; font-weight: 800; font-family: var(--font-mono); text-transform: uppercase; margin-bottom: 0.75rem;">
+          <span class="pulse-dot"></span>
+          RESTRICTED ADMIN MATRIX
+        </div>
+        <h1 style="font-size: 2.4rem; font-weight: 800; margin-bottom: 0.35rem;">Admin Operations & System Health</h1>
+        <p style="color: var(--text-muted); font-size: 0.98rem;">
+          User privileges management, real-time audit logs, and inference server diagnostics.
+        </p>
+      </div>
+
+      <button type="button" id="btn-admin-refresh" class="btn btn-secondary btn-sm">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="23 4 23 10 17 10"/>
+          <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+        </svg>
+        Refresh Data
+      </button>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stat-cards-grid">
+      <div class="stat-card">
+        <div class="stat-icon" style="background: var(--violet-subtle); color: var(--violet-light); border: 1px solid var(--violet-border);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="23 7 16 12 23 17 23 7"/>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+          </svg>
+        </div>
+        <div>
+          <div id="admin-stat-scans" class="stat-value">1,428</div>
+          <div class="stat-label">Total Videos Scanned</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background: var(--acid-green-subtle); color: var(--acid-green); border: 1px solid var(--acid-green-border);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div>
+          <div id="admin-stat-users" class="stat-value">394</div>
+          <div class="stat-label">Registered Accounts</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background: var(--anomaly-crimson-bg); color: var(--anomaly-crimson); border: 1px solid var(--anomaly-crimson-border);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <div>
+          <div id="admin-stat-highrisk" class="stat-value" style="color: #ff94a8;">312</div>
+          <div class="stat-label">Deepfakes Intercepted</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background: var(--violet-subtle); color: var(--violet-light); border: 1px solid var(--violet-border);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 14 14"/>
+          </svg>
+        </div>
+        <div>
+          <div id="admin-stat-latency" class="stat-value">185ms</div>
+          <div class="stat-label">Inference Engine Latency</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Users Management Section -->
+    <div class="card" style="margin-bottom: 2.5rem; padding: 1.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+        <div>
+          <h2 style="font-size: 1.25rem; font-weight: 700;">User Account Management</h2>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Modify status, toggle 2FA unlock states, or remove accounts</p>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Account Status</th>
+              <th>Joined Date</th>
+              <th style="text-align: right;">Action Controls</th>
+            </tr>
+          </thead>
+          <tbody id="admin-users-tbody">
+            <!-- Injected dynamically by admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Login Activity Section -->
+    <div class="card" style="padding: 1.5rem;">
+      <div style="margin-bottom: 1.25rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700;">Recent Authentication & Security Activity</h2>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Audit trail of user logins, 2FA challenges, and blocked brute-force attempts</p>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>User Account</th>
+              <th>IP Address</th>
+              <th>Client / Browser</th>
+              <th>Authentication Status</th>
+            </tr>
+          </thead>
+          <tbody id="admin-activity-tbody">
+            <!-- Injected dynamically by admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Delete User Modal -->
+  <div id="delete-user-modal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 440px;">
+      <h3 class="modal-title" style="color: #f87171;">Delete User Account</h3>
+      <div class="modal-body">
+        <p style="color: var(--text-muted); font-size: 0.92rem;">
+          Are you sure you want to permanently delete <strong id="delete-user-name" style="color: #fff;"></strong>? All their scan audits and credentials will be purged immediately.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-cancel-delete-user" class="btn btn-secondary btn-sm">Cancel</button>
+        <button type="button" id="btn-confirm-delete-user" class="btn btn-danger btn-sm">Confirm Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Universal Footer -->
+  <footer class="footer-cybergeeks">
+    <div class="footer-cyber-grid">
+      <div>
+        <div class="footer-brand-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-primary)" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          <span>CYBER<span style="color: var(--cyan-primary);">GEEKS</span></span>
+        </div>
+        <div class="footer-brand-tagline">Digital Trust. Intelligent Defense.</div>
+        <p class="footer-brand-desc">
+          Automated spatio-temporal deep-learning platform engineered to expose synthetic video deception, GAN face manipulation, and media fraud with frame-level explainability.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="detect.html">Detection Lab</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="login.html">Sign In / User Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Information</div>
+        <ul class="footer-links-list">
+          <li><a href="about.html">About Us &amp; Contact</a></li>
+          <li><a href="security.html">Privacy &amp; Security</a></li>
+          <li><a href="technology.html#datasets">Datasets &amp; Benchmarks</a></li>
+          <li><a href="technology.html#research">Research Papers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Contact &amp; Connect</div>
+        <ul class="footer-links-list">
+          <li>
+            <a href="mailto:wrotefiction@gmail.com" title="Email Riya Maurya" style="word-break: break-all;">
+              ✉ wrotefiction@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="mailto:udgeethkaushik7@gmail.com" title="Email Udgeeth Kaushik" style="word-break: break-all;">
+              ✉ udgeethkaushik7@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://in.linkedin.com/in/udgeeth-kaushik-a733a6327" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-primary);">
+              🔗 Udgeeth Kaushik (LinkedIn)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/riya-maurya-53b443347" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-primary);">
+              🔗 Riya Maurya (LinkedIn)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>&copy; 2026 CYBERGEEKS. AI-BASED FAKE VIDEO DETECTION SYSTEM.</div>
+      <div>Theme: AI and Cybersecurity &bull; Neural Media Forensics</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="/admin-assets/admin.js"></script>
+</body>
+</html>

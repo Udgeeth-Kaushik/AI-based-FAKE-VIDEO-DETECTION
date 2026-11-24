@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detailed Forensic Analysis Report &bull; CYBERGEEKS</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    @media print {
+      .navbar, .footer-cybergeeks, .no-print, .liquid-ambient-canvas { display: none !important; }
+      body { background: #fff !important; color: #000 !important; }
+      .report-dossier-wrapper { border: 1px solid #ccc !important; box-shadow: none !important; color: #000 !important; background: #fff !important; }
+      .card { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; color: #000 !important; }
+      h1, h2, h3, h4, h5, strong { color: #000 !important; }
+    }
+  </style>
+</head>
+<body style="min-height: 100vh;">
+
+  <!-- Background 3D Ambient Chromatic Orbs -->
+  <div class="liquid-ambient-canvas">
+    <div class="liquid-orb orb-primary"></div>
+    <div class="liquid-orb orb-secondary"></div>
+    <div class="liquid-orb orb-tertiary"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar no-print">
+    <div class="nav-container">
+      <!-- Injected dynamically by auth.js -->
+    </div>
+  </header>
+
+  <main class="container" style="max-width: 1100px; margin: 0 auto; padding-top: 1rem;">
+    <!-- Top Back Navigation & Action Bar -->
+    <div class="no-print" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+      <a href="history.html" class="btn btn-secondary btn-sm" style="border-radius: var(--radius-pill); font-size: 0.85rem; padding: 0.4rem 1rem;">
+        &larr; Back to History
+      </a>
+      <div style="display: flex; gap: 0.75rem;">
+        <button type="button" id="btn-export-json" class="btn btn-secondary btn-sm" style="border-radius: var(--radius-pill); font-size: 0.85rem;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+          Export JSON
+        </button>
+        <button type="button" id="btn-print-report" class="btn btn-primary btn-sm" style="border-radius: var(--radius-pill); font-size: 0.85rem;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9"/>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+            <rect x="6" y="14" width="12" height="8"/>
+          </svg>
+          Print / Save as PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Official Forensic Report Dossier Container -->
+    <div class="report-dossier-wrapper" id="report-dossier-container">
+      <!-- Dossier Header Bar -->
+      <div class="dossier-header-bar">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-primary)" stroke-width="2.2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+            <span style="font-family: var(--font-mono); font-weight: 800; font-size: 1.15rem; color: #fff; letter-spacing: 0.05em;">
+              CYBER<span style="color: var(--cyan-primary);">GEEKS</span> ANALYSIS REPORT
+            </span>
+          </div>
+          <h1 id="rep-filename" style="font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 0.35rem;">
+            video_sample_01.mp4
+          </h1>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-dim); display: flex; gap: 1.25rem; flex-wrap: wrap;">
+            <span>REPORT ID: <strong id="rep-id" style="color: #fff;">REP_2026_101</strong></span>
+            <span>AUDIT DATE: <strong id="rep-date" style="color: #fff;">2026-11-24 09:30 UTC</strong></span>
+            
+          </div>
+        </div>
+
+        <!-- Seal Stamp Badge -->
+        <div id="rep-stamp-badge" class="dossier-stamp-seal high">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <span id="rep-stamp-text">RESULT // HIGH RISK</span>
+        </div>
+      </div>
+
+      <!-- Verdict Banner & Probability Dial (Matching Aymentis Screenshot) -->
+      <div class="card" style="padding: 2rem; margin-bottom: 2rem; border-color: rgba(255,51,102,0.3); background: radial-gradient(circle at 10% 50%, rgba(255,51,102,0.12) 0%, rgba(8,14,26,0.9) 80%);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.76rem; color: #ff99b3; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em;">
+              RESULT
+            </span>
+            <h2 id="rep-verdict-title" style="font-size: 2.2rem; font-weight: 800; color: #fff; margin: 0.35rem 0 0.5rem;">
+              High Risk
+            </h2>
+            <p id="rep-verdict-desc" style="color: var(--text-silver); font-size: 0.95rem; max-width: 580px; line-height: 1.6;">
+              Multiple spatial facial boundary artifacts, GAN spectral residuals, and asynchronous eye-blink dynamics were confirmed across extracted keyframes.
+            </p>
+          </div>
+
+          <div style="text-align: center; min-width: 170px;">
+            <div id="rep-probability-num" style="font-size: 3.5rem; font-weight: 800; font-family: var(--font-mono); color: #ff3366; line-height: 1;">
+              94.2%
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-darker); text-transform: uppercase; margin-top: 0.25rem;">
+              Fake Probability
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 2.5rem;">
+        <div class="card" style="padding: 1.25rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-darker); text-transform: uppercase; margin-bottom: 0.35rem;">FRAMES ANALYSED</div>
+          <div id="rep-stat-total" style="font-size: 1.6rem; font-weight: 800; color: #fff; font-family: var(--font-mono);">-</div>
+          <div style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.2rem;">Evenly spaced through the video</div>
+        </div>
+        <div class="card" style="padding: 1.25rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-darker); text-transform: uppercase; margin-bottom: 0.35rem;">FRAMES WITH A FACE</div>
+          <div id="rep-stat-face" style="font-size: 1.6rem; font-weight: 800; color: #fff; font-family: var(--font-mono);">-</div>
+          <div style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.2rem;">Only these are scored</div>
+        </div>
+        <div class="card" style="padding: 1.25rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-darker); text-transform: uppercase; margin-bottom: 0.35rem;">SUSPICIOUS FRAMES</div>
+          <div id="rep-stat-sus" style="font-size: 1.6rem; font-weight: 800; color: #ff3366; font-family: var(--font-mono);">-</div>
+          <div style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.2rem;">Fake score of 50% or more</div>
+        </div>
+        <div class="card" style="padding: 1.25rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-darker); text-transform: uppercase; margin-bottom: 0.35rem;">ANALYSIS TIME</div>
+          <div id="rep-stat-time" style="font-size: 1.6rem; font-weight: 800; color: var(--acid-yellow); font-family: var(--font-mono);">-</div>
+          <div id="rep-stat-time-detail" style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.2rem;">&nbsp;</div>
+        </div>
+      </div>
+
+      <!-- Risk Over Time Timeline Curve -->
+      <div class="card" style="padding: 1.75rem; margin-bottom: 2.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff;">Risk over time</h3>
+            <p style="color: var(--text-dim); font-size: 0.85rem;">Fake score of each analysed frame, in video order</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem; font-family: var(--font-mono); font-size: 0.78rem;">
+            <span style="color: var(--cyan-primary);">&bull; Frame score</span>
+            <span style="color: #ff3366;">--- Suspicious threshold (50%)</span>
+          </div>
+        </div>
+        <div id="report-timeline-chart" style="height: 180px; width: 100%;">
+          <!-- SVG Timeline generated dynamically -->
+        </div>
+      </div>
+
+      <div class="card" style="padding: 1.75rem; margin-bottom: 2.5rem;">
+        <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 0.35rem;">Most suspicious frames</h3>
+        <p style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 1.25rem;">The face box the model analysed is drawn on each frame (red = score of 50% or more).</p>
+        <div id="rep-frames" class="gallery-grid"></div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+        <div class="card" style="padding: 1.5rem;">
+          <h4 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.85rem;">Video details</h4>
+          <div style="display: flex; flex-direction: column; gap: 0.6rem; font-family: var(--font-mono); font-size: 0.82rem;">
+            <div><span style="color: var(--text-darker);">Video length:</span> <strong id="rep-length" style="color: #fff;">-</strong></div>
+            <div><span style="color: var(--text-darker);">Frame reading:</span> <strong id="rep-t-read" style="color: #fff;">-</strong></div>
+            <div><span style="color: var(--text-darker);">Face detection:</span> <strong id="rep-t-faces" style="color: #fff;">-</strong></div>
+            <div><span style="color: var(--text-darker);">AI model scoring:</span> <strong id="rep-t-model" style="color: #fff;">-</strong></div>
+          </div>
+        </div>
+        <div class="card" style="padding: 1.5rem;">
+          <h4 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.85rem;">Model &amp; limitations</h4>
+          <p id="rep-model-note" style="color: var(--text-dim); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0.75rem;"></p>
+          <p style="color: var(--text-dim); font-size: 0.82rem; line-height: 1.6;">This is an automated estimate, not proof. Accuracy can drop on phone videos, heavy compression, new AI generators and faces that are covered or turned away. Do not use it as the only evidence for an important decision.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Universal Footer -->
+  <footer class="footer-cybergeeks no-print">
+    <div class="footer-cyber-grid">
+      <div>
+        <div class="footer-brand-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-primary)" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          <span>CYBER<span style="color: var(--cyan-primary);">GEEKS</span></span>
+        </div>
+        <div class="footer-brand-tagline">Digital Trust. Intelligent Defense.</div>
+        <p class="footer-brand-desc">
+          Automated spatio-temporal deep-learning platform engineered to expose synthetic video deception, GAN face manipulation, and media fraud with frame-level explainability.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="detect.html">Detection Lab</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="login.html">Sign In / User Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Information</div>
+        <ul class="footer-links-list">
+          <li><a href="about.html">About Us &amp; Contact</a></li>
+          <li><a href="security.html">Privacy &amp; Security</a></li>
+          <li><a href="technology.html#datasets">Datasets &amp; Benchmarks</a></li>
+          <li><a href="technology.html#research">Research Papers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Contact &amp; Connect</div>
+        <ul class="footer-links-list">
+          <li>
+            <a href="mailto:wrotefiction@gmail.com" title="Email Riya Maurya" style="word-break: break-all;">
+              ✉ wrotefiction@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="mailto:udgeethkaushik7@gmail.com" title="Email Udgeeth Kaushik" style="word-break: break-all;">
+              ✉ udgeethkaushik7@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://in.linkedin.com/in/udgeeth-kaushik-a733a6327" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-primary);">
+              🔗 Udgeeth Kaushik (LinkedIn)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/riya-maurya-53b443347" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-primary);">
+              🔗 Riya Maurya (LinkedIn)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>&copy; 2026 CYBERGEEKS. AI-BASED FAKE VIDEO DETECTION SYSTEM.</div>
+      <div>Theme: AI and Cybersecurity &bull; Neural Media Forensics</div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const user = await window.checkAuth();
+      if (!user) return;
+      const params = new URLSearchParams(window.location.search);
+      const reportId = params.get("id");
+      const $ = (id) => document.getElementById(id);
+      if (!reportId) {
+        $("rep-filename").textContent = "No report selected";
+        $("rep-verdict-title").textContent = "Open a report from your history";
+        return;
+      }
+
+      let data;
+      try {
+        data = await window.api.getReport(reportId);
+      } catch (e) {
+        $("rep-filename").textContent = "Report not found";
+        $("rep-verdict-title").textContent = "This report does not exist or is not yours.";
+        return;
+      }
+
+      const verdict = data.verdict;
+      const color = verdict === "High" ? "#ff3366" : (verdict === "Medium" ? "#fbbf24" : "#10b981");
+      $("rep-filename").textContent = data.fileName;
+      $("rep-id").textContent = data.reportId.toUpperCase();
+      $("rep-date").textContent = data.date;
+      $("rep-probability-num").textContent = `${data.fakeProbability}%`;
+      $("rep-probability-num").style.color = color;
+      $("rep-verdict-title").textContent = data.verdictText;
+      $("rep-verdict-desc").textContent = verdict === "High"
+        ? "Many analysed frames look manipulated. Check the flagged frames below."
+        : verdict === "Medium"
+          ? "Some frames look suspicious. The result is inconclusive - compression or lighting can cause this."
+          : "Few or no frames looked manipulated. This lowers the risk but is not a guarantee.";
+      const stamp = $("rep-stamp-badge");
+      if (verdict === "Low") { stamp.className = "dossier-stamp-seal low"; $("rep-stamp-text").textContent = "RESULT // LOW RISK"; }
+      else if (verdict === "Medium") { stamp.className = "dossier-stamp-seal"; stamp.style.borderColor = "#fbbf24"; stamp.style.color = "#fbbf24"; $("rep-stamp-text").textContent = "RESULT // MEDIUM RISK"; }
+      else { $("rep-stamp-text").textContent = "RESULT // HIGH RISK"; }
+
+      $("rep-stat-total").textContent = data.stats.totalFrames;
+      $("rep-stat-face").textContent = data.stats.framesWithFace;
+      $("rep-stat-sus").textContent = data.stats.suspiciousFrames;
+      $("rep-stat-time").textContent = data.analysisTime;
+      $("rep-length").textContent = data.videoLength;
+      const t = data.timings || {};
+      const f2 = (v) => (v == null ? "-" : Number(v).toFixed(2) + " s");
+      $("rep-t-read").textContent = f2(t.read);
+      $("rep-t-faces").textContent = f2(t.faces);
+      $("rep-t-model").textContent = f2(t.model);
+      $("rep-model-note").textContent = data.modelNote || "";
+
+      // Risk-over-time chart
+      const chartEl = $("report-timeline-chart");
+      const pts = data.riskTimeline || [];
+      if (chartEl && pts.length) {
+        const n = pts.length;
+        const points = pts.map((p, i) => ({ x: 20 + (n === 1 ? 0.5 : i / (n - 1)) * 920, y: 140 - (p.risk / 100) * 110, p }));
+        const d = points.map((q, i) => (i ? "L" : "M") + ` ${q.x} ${q.y}`).join(" ");
+        chartEl.innerHTML = `<svg viewBox="0 0 960 170" width="100%" height="100%">
+          <line x1="20" y1="85" x2="940" y2="85" stroke="#ff3366" stroke-dasharray="4 4" stroke-width="1.5"/>
+          <path d="${d}" fill="none" stroke="${color}" stroke-width="2.5"/>
+          ${points.map(q => `<circle cx="${q.x}" cy="${q.y}" r="${q.p.risk >= 50 ? 4.5 : 3}" fill="${q.p.risk >= 50 ? '#ff3366' : '#00f0ff'}"><title>${q.p.time}s: ${q.p.risk}%</title></circle>`).join("")}
+        </svg>`;
+      }
+
+      // Most suspicious frames (top 6 by score; falls back to highest scores if none are flagged)
+      const frames = (data.suspiciousFrames && data.suspiciousFrames.length ? data.suspiciousFrames
+        : (data.allFrames || []).filter(f => f.riskScore != null).sort((a, b) => b.riskScore - a.riskScore)).slice(0, 6);
+      $("rep-frames").innerHTML = frames.length ? frames.map(f => `
+        <div class="frame-card ${f.riskScore >= 50 ? 'suspicious' : ''}">
+          <img src="${f.thumbnail}" alt="Frame #${f.frameNumber}" class="frame-thumb" loading="lazy" />
+          <div class="frame-meta"><div class="frame-title"><span>Frame #${f.frameNumber}</span>
+          <span class="frame-score-pill ${f.riskScore >= 50 ? 'high' : 'low'}">${f.riskScore}%</span></div>
+          <div class="frame-timestamp">${f.timestamp}</div></div>
+        </div>`).join("") : "<p style='color:var(--text-dim)'>No face was found in any frame.</p>";
+
+      $("btn-print-report").addEventListener("click", () => window.print());
+      const dl = document.createElement("a");
+      dl.className = "btn btn-secondary btn-sm"; dl.style.borderRadius = "var(--radius-pill)";
+      dl.href = window.api.reportDownloadUrl(data.reportId); dl.textContent = "Download full report (HTML)";
+      $("btn-export-json").parentNode.insertBefore(dl, $("btn-export-json"));
+      $("btn-export-json").addEventListener("click", () => {
+        const blob = new Blob([JSON.stringify({ ...data, allFrames: undefined }, null, 2)], { type: "application/json" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = `report_${data.reportId}.json`;
+        a.click();
+      });
+    });
+  </script>
+</body>
+</html>

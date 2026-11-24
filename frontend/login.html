@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In &bull; CYBERGEEKS Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Background 3D Ambient Chromatic Orbs -->
+  <div class="liquid-ambient-canvas">
+    <div class="liquid-orb orb-primary"></div>
+    <div class="liquid-orb orb-secondary"></div>
+    <div class="liquid-orb orb-tertiary"></div>
+  </div>
+
+  <!-- Minimal Nav -->
+  <header style="padding: 1.25rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 10;">
+    <a href="index.html" class="nav-brand" style="text-decoration: none;">
+      <div class="brand-capsule-icon" style="background: linear-gradient(135deg, rgba(0,240,255,0.2), rgba(139,92,246,0.3)); border: 1px solid var(--cyan-primary);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-primary)" stroke-width="2.2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+      </div>
+      <span style="font-weight: 800; letter-spacing: 0.08em; font-family: var(--font-mono); color: #fff;">CYBER<span style="color: var(--cyan-primary);">GEEKS</span></span>
+    </a>
+    <a href="index.html" class="btn btn-secondary btn-sm" style="border-radius: var(--radius-pill); font-size: 0.85rem;">
+      &larr; Back to Public Site
+    </a>
+  </header>
+
+  <!-- Split-Screen Auth Container (Matching Lian Pakdaman / Dribbble) -->
+  <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 1.5rem; z-index: 10;">
+    <div class="auth-split-wrapper">
+      <!-- Left: Cyber Security Visual Graphic -->
+      <div class="auth-visual-column">
+        <div>
+          <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--cyan-primary); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;">
+            CYBERGEEKS USER PORTAL
+          </span>
+          <h2 style="font-size: 2.2rem; font-weight: 800; color: #fff; margin: 0.75rem 0 1rem; line-height: 1.2;">
+            Your digital security starts here.
+          </h2>
+          <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; max-width: 360px;">
+            AI-powered video verification and explainable deepfake forensics for a safer digital world.
+          </p>
+        </div>
+
+        <!-- Glowing Cyber Shield Graphic (Matching Screenshot) -->
+        <div style="text-align: center; margin: 2rem auto; position: relative;">
+          <svg viewBox="0 0 240 240" width="220" height="220" style="overflow: visible;">
+            <defs>
+              <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#dfff00" stop-opacity="0.8"/>
+              </linearGradient>
+              <filter id="shieldGlow">
+                <feGaussianBlur stdDeviation="6" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            
+            <!-- Outer Concentric Rotating Orbit -->
+            <circle cx="120" cy="120" r="100" fill="none" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1.5" stroke-dasharray="4 6">
+              <animateTransform attributeName="transform" type="rotate" from="0 120 120" to="360 120 120" dur="25s" repeatCount="indefinite"/>
+            </circle>
+
+            <!-- Middle Orbit -->
+            <circle cx="120" cy="120" r="82" fill="none" stroke="rgba(139, 92, 246, 0.3)" stroke-width="1.2" stroke-dasharray="8 4">
+              <animateTransform attributeName="transform" type="rotate" from="360 120 120" to="0 120 120" dur="18s" repeatCount="indefinite"/>
+            </circle>
+
+            <!-- Glowing Cyber Shield Path -->
+            <path d="M 120 40 L 175 65 L 175 130 C 175 170 120 195 120 195 C 120 195 65 170 65 130 L 65 65 Z" fill="rgba(8, 14, 26, 0.7)" stroke="url(#shieldGrad)" stroke-width="3" filter="url(#shieldGlow)"/>
+
+            <!-- Futuristic Biometric Eye Inside Shield -->
+            <path d="M 85 120 Q 120 90 155 120 Q 120 150 85 120 Z" fill="none" stroke="#00f0ff" stroke-width="2"/>
+            <circle cx="120" cy="120" r="12" fill="none" stroke="#dfff00" stroke-width="2"/>
+            <circle cx="120" cy="120" r="4" fill="#00f0ff"/>
+            <path d="M 120 100 L 120 108 M 120 132 L 120 140 M 100 120 L 108 120 M 132 120 L 140 120" stroke="#00f0ff" stroke-width="1.5"/>
+          </svg>
+        </div>
+
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-darker); border-top: 1px solid var(--glass-border); padding-top: 1rem;">
+          EFFICIENTNET-B0 + BiLSTM // 3 DATASETS
+        </div>
+      </div>
+
+      <!-- Right: Form Column -->
+      <div class="auth-form-column">
+        <!-- Switch Tabs -->
+        <div class="portal-tabs-capsule" style="margin-bottom: 2rem;">
+          <button type="button" class="portal-tab-btn active" id="tab-login">Sign In</button>
+          <button type="button" class="portal-tab-btn" id="tab-signup">Register Account</button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <div id="auth-login-container">
+          <div style="margin-bottom: 1.75rem;">
+            <h3 style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 0.35rem;">Welcome back</h3>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">Sign in to your CYBERGEEKS account</p>
+          </div>
+
+          <!-- Account Not Found Alert Box (Shown if user tries to login without registering) -->
+          <div id="login-error-alert" style="display: none; background: rgba(255, 51, 102, 0.12); border: 1px solid rgba(255, 51, 102, 0.35); border-radius: var(--radius-md); padding: 0.95rem 1.15rem; margin-bottom: 1.25rem; font-size: 0.88rem; color: #ff99b3; line-height: 1.5;">
+            <div style="font-weight: 700; display: flex; align-items: center; gap: 0.45rem; margin-bottom: 0.25rem; color: #ff3366;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+              <span id="login-error-title">Account Not Found</span>
+            </div>
+            <div id="login-error-desc">This email is not registered in our system. Please Register / Create an account first.</div>
+            <div style="margin-top: 0.65rem;">
+              <button type="button" id="btn-alert-goto-signup" class="btn btn-primary btn-sm" style="font-size: 0.8rem; padding: 0.35rem 0.95rem; border-radius: var(--radius-pill);">
+                Create Account / Register Now &rarr;
+              </button>
+            </div>
+          </div>
+
+          <form id="form-login" novalidate>
+            <div id="normal-login-fields">
+              <div class="form-group" style="margin-bottom: 1.25rem;">
+                <label class="form-label" for="login-name">Your Full Name</label>
+                <input type="text" id="login-name" class="form-input" placeholder="Enter your name" autocomplete="name">
+              </div>
+
+              <div class="form-group" style="margin-bottom: 1.25rem;">
+                <label class="form-label" for="login-email">Email address</label>
+                <input type="text" id="login-email" class="form-input" placeholder="e.g. analyst@agency.org" autocomplete="username" required>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                  <label class="form-label" for="login-password" style="margin-bottom: 0;">Password</label>
+                  <a href="#" id="link-forgot-pwd" style="font-size: 0.78rem; color: var(--cyan-primary); text-decoration: none; font-family: var(--font-mono);">Forgot password?</a>
+                </div>
+                <div style="position: relative;">
+                  <input type="password" id="login-password" class="form-input" placeholder="Enter your password" autocomplete="current-password" required style="padding-right: 2.75rem;">
+                  <button type="button" id="btn-toggle-pwd" style="position: absolute; right: 0.85rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-dim); cursor: pointer; padding: 0.2rem;" title="Show/Hide password">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                      <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.5rem;">
+                <input type="checkbox" id="login-remember" style="accent-color: var(--cyan-primary); width: 16px; height: 16px; cursor: pointer;">
+                <label for="login-remember" style="font-size: 0.85rem; color: var(--text-silver); cursor: pointer; user-select: none;">Remember me</label>
+              </div>
+            </div>
+
+            <!-- 2FA Verification Box (dynamic) -->
+            <div id="two-factor-box" style="display: none; background: rgba(0, 240, 255, 0.08); border: 1px dashed var(--cyan-primary); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem; text-align: center;">
+              <div style="font-size: 0.95rem; font-weight: 700; color: var(--cyan-primary); margin-bottom: 0.25rem;">
+                Two-Factor Authentication Required
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 1rem;">
+                Enter the 6-digit verification code from your authenticator device
+              </p>
+              <input type="text" id="login-2fa-code" class="form-input" maxlength="6" placeholder="000000" inputmode="numeric" style="letter-spacing: 0.45em; font-size: 1.45rem; font-weight: 700; text-align: center; font-family: var(--font-mono); color: var(--acid-yellow); margin-bottom: 0.75rem;">
+              <button type="button" id="btn-back-to-pwd" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; border-radius: var(--radius-pill);">
+                Back to Password
+              </button>
+            </div>
+
+            <button type="submit" id="login-submit-btn" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 0.95rem; border-radius: var(--radius-md); font-weight: 700;">
+              Sign In to Dashboard &rarr;
+            </button>
+          </form>
+
+          <div style="margin-top: 1.75rem; text-align: center; font-size: 0.88rem; color: var(--text-dim);">
+            New here? <a href="#" id="link-goto-register" style="color: var(--cyan-primary); text-decoration: none; font-weight: 600;">Create an account</a>
+          </div>
+        </div>
+
+        <!-- REGISTRATION FORM -->
+        <div id="auth-signup-container" style="display: none;">
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 0.35rem;">Create account</h3>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">Join CYBERGEEKS video forensics lab</p>
+          </div>
+
+          <form id="form-signup" novalidate>
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label class="form-label" for="signup-name">Full name</label>
+              <input type="text" id="signup-name" class="form-input" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label class="form-label" for="signup-email">Email address</label>
+              <input type="email" id="signup-email" class="form-input" placeholder="e.g. analyst@agency.org" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label class="form-label" for="signup-password">Password</label>
+              <input type="password" id="signup-password" class="form-input" placeholder="Min 8 characters, letters and numbers" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.25rem;">
+              <label class="form-label" for="signup-confirm-password">Confirm password</label>
+              <input type="password" id="signup-confirm-password" class="form-input" placeholder="Re-enter password" required>
+            </div>
+
+            <div style="display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 1.5rem;">
+              <input type="checkbox" id="signup-terms" required style="accent-color: var(--cyan-primary); width: 16px; height: 16px; margin-top: 3px; cursor: pointer;">
+              <label for="signup-terms" style="font-size: 0.82rem; color: var(--text-dim); line-height: 1.5; cursor: pointer;">
+                I accept the <a href="security.html" style="color: var(--cyan-primary); text-decoration: none;">Terms of Service</a> &amp; <a href="security.html" style="color: var(--cyan-primary); text-decoration: none;">Privacy Policy</a>.
+              </label>
+            </div>
+
+            <button type="submit" id="signup-submit-btn" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 0.95rem; border-radius: var(--radius-md); font-weight: 700;">
+              Create Account &amp; Open Dashboard &rarr;
+            </button>
+          </form>
+
+          <div style="margin-top: 1.75rem; text-align: center; font-size: 0.88rem; color: var(--text-dim);">
+            Already have an account? <a href="#" id="link-goto-login" style="color: var(--cyan-primary); text-decoration: none; font-weight: 600;">Sign in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabLogin = document.getElementById("tab-login");
+      const tabSignup = document.getElementById("tab-signup");
+      const loginBox = document.getElementById("auth-login-container");
+      const signupBox = document.getElementById("auth-signup-container");
+      const linkGotoRegister = document.getElementById("link-goto-register");
+      const linkGotoLogin = document.getElementById("link-goto-login");
+      const btnTogglePwd = document.getElementById("btn-toggle-pwd");
+      const loginPassword = document.getElementById("login-password");
+      const btnAlertGotoSignup = document.getElementById("btn-alert-goto-signup");
+      const loginErrorAlert = document.getElementById("login-error-alert");
+
+      function showLogin() {
+        tabLogin.classList.add("active");
+        tabSignup.classList.remove("active");
+        loginBox.style.display = "block";
+        signupBox.style.display = "none";
+      }
+
+      function showSignup() {
+        tabSignup.classList.add("active");
+        tabLogin.classList.remove("active");
+        signupBox.style.display = "block";
+        loginBox.style.display = "none";
+        if (loginErrorAlert) loginErrorAlert.style.display = "none";
+
+        // Pre-fill email and name from login if user entered them
+        const loginEmailInput = document.getElementById("login-email");
+        const loginNameInput = document.getElementById("login-name");
+        const signupEmailInput = document.getElementById("signup-email");
+        const signupNameInput = document.getElementById("signup-name");
+
+        if (loginEmailInput && signupEmailInput && loginEmailInput.value && !signupEmailInput.value) {
+          signupEmailInput.value = loginEmailInput.value;
+        }
+        if (loginNameInput && signupNameInput && loginNameInput.value && !signupNameInput.value) {
+          signupNameInput.value = loginNameInput.value;
+        }
+      }
+
+      if (tabLogin) tabLogin.addEventListener("click", showLogin);
+      if (tabSignup) tabSignup.addEventListener("click", showSignup);
+      if (linkGotoRegister) linkGotoRegister.addEventListener("click", (e) => { e.preventDefault(); showSignup(); });
+      if (linkGotoLogin) linkGotoLogin.addEventListener("click", (e) => { e.preventDefault(); showLogin(); });
+      if (btnAlertGotoSignup) btnAlertGotoSignup.addEventListener("click", (e) => { e.preventDefault(); showSignup(); });
+
+      // Password toggle
+      if (btnTogglePwd && loginPassword) {
+        btnTogglePwd.addEventListener("click", () => {
+          const type = loginPassword.getAttribute("type") === "password" ? "text" : "password";
+          loginPassword.setAttribute("type", type);
+          btnTogglePwd.style.color = type === "text" ? "var(--cyan-primary)" : "var(--text-dim)";
+        });
+      }
+
+      // Check URL params (?signup=true or ?notice=login_required)
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("signup") === "true") {
+        showSignup();
+      }
+      if (params.get("notice") === "login_required") {
+        setTimeout(() => {
+          if (typeof window.showToast === "function") {
+            window.showToast("Please sign in or create an account to access the User Dashboard.", "info");
+          }
+        }, 300);
+      }
+
+      // Wire login and signup forms with auth.js
+      if (typeof window.initAuthForms === "function") {
+        window.initAuthForms();
+      }
+    });
+  </script>
+</body>
+</html>

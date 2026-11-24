@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Detection Lab &bull; CYBERGEEKS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background 3D Ambient Chromatic Orbs -->
+  <div class="liquid-ambient-canvas">
+    <div class="liquid-orb orb-primary"></div>
+    <div class="liquid-orb orb-secondary"></div>
+    <div class="liquid-orb orb-tertiary"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <!-- Injected dynamically by auth.js -->
+    </div>
+  </header>
+
+  <main class="container" style="max-width: 960px; margin: 2rem auto 5rem; padding: 0 1.5rem;">
+    <!-- Centered Header -->
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <div style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--cyan-primary); font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.6rem; padding: 0.35rem 0.9rem; background: rgba(0, 240, 255, 0.08); border: 1px solid var(--cyan-border); border-radius: var(--radius-pill);">
+        <span class="status-dot-active" style="background: var(--cyan-primary);"></span>
+        <span>EFFICIENTNET-B0 + BiLSTM INFERENCE PIPELINE &bull; CYBERGEEKS FORENSICS</span>
+      </div>
+      <h1 style="font-size: 2.6rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        AI Detection Lab
+      </h1>
+      <p style="color: var(--text-dim); font-size: 1.05rem; max-width: 640px; margin: 0 auto;">
+        Upload a digital video to execute automated frame sampling, face cropping, and spatio-temporal deep-learning scoring.
+      </p>
+    </div>
+
+    <!-- Upload & Preview Station (Centered In The Middle) -->
+    <div id="upload-wrapper" style="max-width: 720px; margin: 0 auto 3rem;">
+      <!-- Centered Upload Video Box -->
+      <div id="dropzone" class="upload-center-box">
+        <input type="file" id="video-file-input" accept=".mp4,.avi,.mov,.mkv" style="display: none;">
+        
+        <div class="upload-icon-circle-glow">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
+
+        <h2 style="font-size: 1.85rem; font-weight: 800; color: #ffffff; margin-bottom: 0.4rem; letter-spacing: -0.01em;">
+          Upload Video
+        </h2>
+        
+        <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.4rem; max-width: 480px;">
+          Select a digital video or drag and drop your file here to execute automated AI forensic analysis
+        </p>
+
+        <div class="btn btn-primary" style="padding: 0.75rem 2.2rem; font-size: 1rem; border-radius: var(--radius-pill); margin-bottom: 1.25rem; pointer-events: none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          Select Video File
+        </div>
+        
+        <!-- EXPLICIT REQUIREMENT: "mp4, avi, mov, mkv; limit 50 MB, ye line page pe likhi ho" -->
+        <div class="upload-limit-pill">
+          Supported formats: MP4, AVI, MOV, MKV &bull; File size limit: 50 MB
+        </div>
+      </div>
+
+      <!-- Video Preview Wrapper (Also Centered) -->
+      <div id="preview-wrapper" class="card" style="display: none; padding: 1.75rem;">
+        <video id="preview-video" class="preview-video-player" controls preload="metadata"></video>
+        
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--glass-border);">
+          <div style="display: flex; align-items: center; gap: 0.85rem;">
+            <div style="width: 44px; height: 44px; background: rgba(0, 240, 255, 0.1); border: 1px solid var(--cyan-border); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--cyan-primary);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="23 7 16 12 23 17 23 7"/>
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+              </svg>
+            </div>
+            <div>
+              <div id="file-name" style="font-weight: 700; font-size: 1.05rem; color: #fff;">video.mp4</div>
+              <div id="file-size" style="font-size: 0.85rem; color: var(--text-dim); font-family: var(--font-mono);">0.00 MB</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.85rem;">
+            <button type="button" id="btn-change-video" class="btn btn-secondary">
+              Change Video
+            </button>
+            <button type="button" id="btn-analyze" class="btn btn-primary" disabled>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+              Analyze Video
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Progress Card -->
+    <div id="progress-section" class="progress-section">
+      <div class="progress-header">
+        <div class="progress-stage">
+          <span class="pulse-dot"></span>
+          <span id="progress-stage-text">Starting analysis...</span>
+        </div>
+        <span id="progress-percentage" style="font-size: 1.5rem; font-weight: 900; font-family: var(--font-mono); color: var(--hot-pink);">0%</span>
+      </div>
+
+      <div class="progress-bar-container">
+        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+      </div>
+
+      <div class="progress-stats-grid">
+        <div class="pstat-item">
+          <div class="pstat-label">Frames Scanned</div>
+          <div id="pstat-scanned" class="pstat-value">0 / 450</div>
+        </div>
+        <div class="pstat-item">
+          <div class="pstat-label">Faces Cropped</div>
+          <div id="pstat-faces" class="pstat-value">0</div>
+        </div>
+        <div class="pstat-item">
+          <div class="pstat-label">Elapsed Time</div>
+          <div id="pstat-elapsed" class="pstat-value">00:00</div>
+        </div>
+        <div class="pstat-item">
+          <div class="pstat-label">Estimated Time Left</div>
+          <div id="pstat-timeleft" class="pstat-value">~ 00:08s</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result Dashboard -->
+    <div id="result-section" style="display: none;">
+      <!-- Verdict Banner -->
+      <div class="verdict-banner">
+        <div class="verdict-info">
+          <div id="verdict-badge" class="verdict-badge high">
+            <span>High Risk</span>
+          </div>
+          <div>
+            <h3 id="verdict-title" style="font-size: 1.45rem; font-weight: 800; margin-bottom: 0.35rem;">Synthetic Deepfake Detected</h3>
+            <p id="verdict-desc" style="color: var(--text-secondary); font-size: 0.95rem; max-width: 600px;">
+              High probability of generative face-swapping manipulation detected across multiple keyframes.
+            </p>
+          </div>
+        </div>
+
+        <div class="probability-meter">
+          <div id="fake-probability-val" class="probability-number" style="color: var(--anomaly-crimson);">92.4%</div>
+          <div class="probability-label">Fake Probability</div>
+        </div>
+      </div>
+
+      <!-- 4 Stat Cards -->
+      <div class="stat-cards-grid">
+        <!-- 1. Frames with face -->
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="9" cy="10" r="1.5" fill="currentColor"/>
+              <circle cx="15" cy="10" r="1.5" fill="currentColor"/>
+              <path d="M8 15s1.5 2 4 2 4-2 4-2"/>
+            </svg>
+          </div>
+          <div>
+            <div id="stat-frames-face" class="stat-value">412 / 450</div>
+            <div class="stat-label">Frames with Face</div>
+          </div>
+        </div>
+
+        <!-- 2. Suspicious frames -->
+        <div class="stat-card" style="border-color: var(--anomaly-crimson-border);">
+          <div class="stat-icon" style="background: var(--anomaly-crimson-bg); border-color: var(--anomaly-crimson-border); color: var(--anomaly-crimson);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <div>
+            <div id="stat-suspicious-frames" class="stat-value" style="color: var(--anomaly-crimson);">68 frames</div>
+            <div class="stat-label">Suspicious Frames</div>
+          </div>
+        </div>
+
+        <!-- 3. Video length -->
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div>
+            <div id="stat-video-length" class="stat-value">00:15</div>
+            <div class="stat-label">Video Length</div>
+          </div>
+        </div>
+
+        <!-- 4. Analysis time -->
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--acid-green-subtle); border-color: var(--acid-green-border); color: var(--acid-green);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <div>
+            <div id="stat-analysis-time" class="stat-value">4.2s</div>
+            <div class="stat-label">Analysis Time</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Risk Over Time SVG Chart -->
+      <div class="chart-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+          <div>
+            <h3 style="font-size: 1.25rem; font-weight: 800;">Risk Over Time (Timeline Anomaly Curve)</h3>
+            <p style="color: var(--text-secondary); font-size: 0.88rem;">Fake score of every analysed frame, in video order</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1.25rem; font-size: 0.82rem; font-family: var(--font-mono);">
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--acid-green);"></span>
+              <span>Frame score</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--anomaly-crimson);"></span>
+              <span>Suspicious threshold (50%)</span>
+            </div>
+          </div>
+        </div>
+        <div id="chart-container" class="svg-chart-container">
+          <!-- Injected dynamically by detect.js -->
+        </div>
+      </div>
+
+      <!-- Suspicious Frames 3D Gallery -->
+      <div class="card" style="margin-bottom: 2.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+          <div>
+            <h3 style="font-size: 1.25rem; font-weight: 800;">Suspicious Frames Gallery</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem;">Frames the model scored 50% or higher</p>
+          </div>
+          <span style="font-size: 0.82rem; color: var(--anomaly-crimson); font-family: var(--font-mono); font-weight: 700;">Click frame for inspection</span>
+        </div>
+
+        <div id="suspicious-gallery" class="gallery-grid">
+          <!-- Injected dynamically by detect.js -->
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           FRAME-BY-FRAME FORENSIC TELEMETRY TABLE (Requested: "table toh bnao detect me")
+           ==================================================================== -->
+      <div class="card" style="margin-bottom: 2.5rem; padding: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff;">Frame-by-Frame Table</h3>
+            <p style="color: var(--text-dim); font-size: 0.88rem;">Every analysed frame with its fake score</p>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--chroma-acid); background: rgba(187, 244, 81, 0.1); border: 1px solid var(--chroma-acid); padding: 0.35rem 0.85rem; border-radius: 9999px;">
+            EFFICIENTNET-B0 + BiLSTM INFERENCE
+          </span>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead><tr><th>Frame #</th><th>Time</th><th>Face found</th><th>Fake score</th><th>Result</th><th style="text-align: right;">Action</th></tr></thead>
+            <tbody id="frame-telemetry-tbody">
+              <!-- Injected dynamically by detect.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- All Frames Collapsible Section -->
+      <div class="card" style="margin-bottom: 2.5rem; padding: 1.75rem;">
+        <button type="button" id="all-frames-toggle" style="width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; color: #fff; font-size: 1.15rem; font-weight: 700; cursor: pointer; padding: 0.25rem 0;">
+          <span>All Extracted Frames Inspector</span>
+          <span class="toggle-icon">▼</span>
+        </button>
+        <div id="all-frames-content" style="display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--glass-border);">
+          <div id="all-frames-container" class="gallery-grid">
+            <!-- Injected dynamically by detect.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 2.5rem;">
+        <button type="button" id="btn-analyze-another" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="1 4 1 10 7 10"/>
+            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+          </svg>
+          Inspect Another Video
+        </button>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="report.html" id="btn-view-dossier" class="btn btn-secondary" style="border-color: var(--cyan-border); color: var(--cyan-primary);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            View Detailed Analysis Report &rarr;
+          </a>
+          <button type="button" id="btn-download-report" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download Forensic Report
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Frame Zoom Modal -->
+  <div id="frame-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button type="button" id="modal-frame-close" class="modal-close-btn">&times;</button>
+      <h3 id="modal-frame-title" style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.75rem; color: #fff;">Keyframe Inspection</h3>
+      <div class="modal-body">
+        <img id="modal-frame-image" src="" alt="Frame inspection" style="width: 100%; border-radius: var(--radius-md); border: 1px solid var(--glass-border); background: #000;">
+        <div id="modal-frame-details"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Universal Footer -->
+  <footer class="footer-cybergeeks">
+    <div class="footer-cyber-grid">
+      <div>
+        <div class="footer-brand-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-primary)" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          <span>CYBER<span style="color: var(--cyan-primary);">GEEKS</span></span>
+        </div>
+        <div class="footer-brand-tagline">Digital Trust. Intelligent Defense.</div>
+        <p class="footer-brand-desc">
+          Automated spatio-temporal deep-learning platform engineered to expose synthetic video deception, GAN face manipulation, and media fraud with frame-level explainability.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="detect.html">Detection Lab</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="login.html">Sign In / User Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Information</div>
+        <ul class="footer-links-list">
+          <li><a href="about.html">About Us &amp; Contact</a></li>
+          <li><a href="security.html">Privacy &amp; Security</a></li>
+          <li><a href="technology.html#datasets">Datasets &amp; Benchmarks</a></li>
+          <li><a href="technology.html#research">Research Papers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Contact &amp; Connect</div>
+        <ul class="footer-links-list">
+          <li>
+            <a href="mailto:wrotefiction@gmail.com" title="Email Riya Maurya" style="word-break: break-all;">
+              ✉ wrotefiction@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="mailto:udgeethkaushik7@gmail.com" title="Email Udgeeth Kaushik" style="word-break: break-all;">
+              ✉ udgeethkaushik7@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://in.linkedin.com/in/udgeeth-kaushik-a733a6327" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-primary);">
+              🔗 Udgeeth Kaushik (LinkedIn)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/riya-maurya-53b443347" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-primary);">
+              🔗 Riya Maurya (LinkedIn)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>&copy; 2026 CYBERGEEKS. AI-BASED FAKE VIDEO DETECTION SYSTEM.</div>
+      <div>Theme: AI and Cybersecurity &bull; Neural Media Forensics</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/detect.js"></script>
+</body>
+</html>

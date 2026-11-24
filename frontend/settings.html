@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile &amp; Security Settings &bull; CYBERGEEKS</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Strict Immediate Session Guard: Settings portal is accessible ONLY for authenticated user sessions -->
+  <script>
+    (function() {
+      try {
+        const raw = localStorage.getItem("auth_user");
+        if (!raw) {
+          window.location.replace("login.html?notice=login_required");
+          return;
+        }
+        const u = JSON.parse(raw);
+        if (!u || !u.id || u.id === "usr_demo") {
+          localStorage.removeItem("auth_user");
+          localStorage.removeItem("auth_token");
+          window.location.replace("login.html?notice=login_required");
+          return;
+        }
+      } catch (e) {
+        window.location.replace("login.html?notice=login_required");
+      }
+    })();
+  </script>
+</head>
+<body style="min-height: 100vh;">
+
+  <!-- Background 3D Ambient Chromatic Orbs -->
+  <div class="liquid-ambient-canvas">
+    <div class="liquid-orb orb-primary"></div>
+    <div class="liquid-orb orb-secondary"></div>
+    <div class="liquid-orb orb-tertiary"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <!-- Injected dynamically by auth.js -->
+    </div>
+  </header>
+
+  <!-- Portal Layout: Sidebar + Main Content -->
+  <div class="portal-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="portal-sidebar">
+      <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--cyan-primary); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.5rem; padding-left: 0.5rem;">
+        USER PORTAL
+      </div>
+      <ul class="portal-nav-menu">
+        <li>
+          <a href="dashboard.html" class="portal-nav-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+            <span class="nav-label">Overview</span>
+          </a>
+        </li>
+        <li>
+          <a href="detect.html" class="portal-nav-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <span class="nav-label">New Analysis</span>
+          </a>
+        </li>
+        <li>
+          <a href="history.html" class="portal-nav-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span class="nav-label">Analysis History</span>
+          </a>
+        </li>
+        <li>
+          <a href="report.html" class="portal-nav-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            <span class="nav-label">Audit Reports</span>
+          </a>
+        </li>
+        <li>
+          <a href="settings.html" class="portal-nav-link active">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span class="nav-label">My Profile &amp; Settings</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Settings Content -->
+    <main class="portal-content">
+      <div style="max-width: 720px; margin: 0 auto;">
+        <h1 style="font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 0.4rem;">Account</h1>
+        <p style="color: var(--text-dim); font-size: 0.92rem; margin-bottom: 2rem;">Your account details. Your scans and reports are visible only to you.</p>
+        <div class="card" style="padding: 1.75rem;">
+          <label class="form-label">Name</label>
+          <input type="text" id="prof-name" class="form-input" disabled style="opacity: 0.8; margin-bottom: 1rem;">
+          <label class="form-label">Email</label>
+          <input type="text" id="prof-email" class="form-input" disabled style="opacity: 0.8; margin-bottom: 1rem;">
+          <p style="color: var(--text-dim); font-size: 0.85rem; line-height: 1.6; margin-top: 0.5rem;">
+            Passwords are stored as salted hashes and are never shown. To change your password or email, contact the project owner.
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const user = await window.checkAuth();
+      if (!user) return;
+      const n = document.getElementById("prof-name"), e = document.getElementById("prof-email");
+      if (n) n.value = user.name || "";
+      if (e) e.value = user.email || "";
+    });
+  </script>
+</body>
+</html>

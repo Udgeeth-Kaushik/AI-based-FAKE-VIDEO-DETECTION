@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technology &amp; Research - CYBERGEEKS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background 3D Ambient Chromatic Orbs -->
+  <div class="liquid-ambient-canvas">
+    <div class="liquid-orb orb-primary"></div>
+    <div class="liquid-orb orb-secondary"></div>
+    <div class="liquid-orb orb-tertiary"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <!-- Injected by auth.js -->
+    </div>
+  </header>
+
+  <main class="container" style="max-width: 1100px; margin: 0 auto; padding-top: 1rem;">
+    <!-- Title Header -->
+    <div style="text-align: center; margin-bottom: 3.5rem;">
+      <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 240, 255, 0.08); border: 1px solid var(--cyan-border); padding: 0.35rem 1rem; border-radius: var(--radius-pill); font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: var(--cyan-primary); text-transform: uppercase; margin-bottom: 0.75rem;">
+        <span class="status-dot-active" style="background: var(--cyan-primary);"></span>
+        NEURAL ARCHITECTURE &amp; BENCHMARKING
+      </div>
+      <h1 style="font-size: 2.8rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">
+        Technology &amp; Scientific Research
+      </h1>
+      <p style="color: var(--text-silver); font-size: 1.05rem; max-width: 680px; margin: 0 auto; line-height: 1.6;">
+        Explore the dual-stream deep learning mechanics, public benchmark datasets, empirical evaluation metrics, and peer-reviewed research powering CYBERGEEKS.
+      </p>
+    </div>
+
+    <!-- ====================================================================
+         SECTION A: OUR AI ARCHITECTURE
+         ==================================================================== -->
+    <section style="margin-bottom: 4rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.5rem; font-weight: 800; color: #fff;">
+          A. Dual-Stream AI Architecture
+        </h3>
+        <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--cyan-primary); background: var(--cyan-subtle); padding: 0.25rem 0.75rem; border-radius: var(--radius-pill);">
+          SPATIO-TEMPORAL FUSION
+        </span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+        <!-- Card 1: EfficientNet-B0 -->
+        <div class="card" style="border-color: var(--cyan-border); padding: 1.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 42px; height: 42px; border-radius: var(--radius-sm); background: var(--cyan-subtle); border: 1px solid var(--cyan-border); display: flex; align-items: center; justify-content: center; color: var(--cyan-primary); font-weight: 800; font-family: var(--font-mono);">
+              CNN
+            </div>
+            <div>
+              <h4 style="font-size: 1.2rem; font-weight: 700; color: #fff;">EfficientNet-B0</h4>
+              <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--cyan-primary);">Visual Spatial Feature Extraction</span>
+            </div>
+          </div>
+          <p style="color: var(--text-dim); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            Employs compound scaling across network depth, width, and input resolution. MBConv (Mobile Inverted Bottleneck Convolution) blocks with Squeeze-and-Excitation optimize detection of GAN blending seams, boundary warping, and synthetic color cast without excessive parameter overhead.
+          </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; border-top: 1px solid var(--glass-border); padding-top: 1rem;">
+            <div><span style="color: var(--text-darker);">Embedding Dim:</span> <strong style="color: #fff;">1,280 features</strong></div>
+            <div><span style="color: var(--text-darker);">Input Tensor:</span> <strong style="color: #fff;">224&times;224&times;3 RGB</strong></div>
+          </div>
+        </div>
+
+        <!-- Card 2: BiLSTM -->
+        <div class="card" style="border-color: rgba(139, 92, 246, 0.3); padding: 1.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 42px; height: 42px; border-radius: var(--radius-sm); background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.3); display: flex; align-items: center; justify-content: center; color: #c4b5fd; font-weight: 800; font-family: var(--font-mono);">
+              RNN
+            </div>
+            <div>
+              <h4 style="font-size: 1.2rem; font-weight: 700; color: #fff;">Bidirectional LSTM</h4>
+              <span style="font-family: var(--font-mono); font-size: 0.76rem; color: #c4b5fd;">Temporal Pattern Sequence Modeling</span>
+            </div>
+          </div>
+          <p style="color: var(--text-dim); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            While spatial CNNs analyze isolated frames, deepfakes suffer from inter-frame flicker and physiological violations (irregular eye blinks, unnatural pulse dynamics). Our bidirectional LSTM processes sequence vectors in both forward and backward time steps to flag temporal inconsistencies.
+          </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; border-top: 1px solid var(--glass-border); padding-top: 1rem;">
+            <div><span style="color: var(--text-darker);">Hidden Units:</span> <strong style="color: #fff;">256 units</strong></div>
+            <div><span style="color: var(--text-darker);">Window Stride:</span> <strong style="color: #fff;">16 face frames</strong></div>
+          </div>
+        </div>
+
+        <!-- Card 3: OpenCV Pre-processing -->
+        <div class="card" style="padding: 1.5rem;">
+          <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">OpenCV Frame Pipeline</h4>
+          <p style="color: var(--text-dim); font-size: 0.88rem; line-height: 1.5; margin-bottom: 0.75rem;">
+            High-efficiency hardware-accelerated video decoding. Extracts uniform strides, handles variable frame rates (VFR), and prepares pristine uncompressed tensors for facial cropping.
+          </p>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-darker);">Sub-sampled stride: 15 fps decimation</span>
+        </div>
+
+        <!-- Card 4: PyTorch & GPU Acceleration -->
+        <div class="card" style="padding: 1.5rem;">
+          <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">PyTorch &amp; Cloud GPU Engine</h4>
+          <p style="color: var(--text-dim); font-size: 0.88rem; line-height: 1.5; margin-bottom: 0.75rem;">
+            Trained on a Kaggle T4 GPU with mixed precision. The website runs the same PyTorch model for inference; the analysis time of every scan is measured and shown in its report.
+          </p>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-darker);">Cloud Architecture: Python &bull; Torch &bull; MySQL</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION B: DATASET INFORMATION CARDS (PPT Slide 3)
+         ==================================================================== -->
+    <section id="datasets" style="margin-bottom: 4rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+        <div>
+          <h3 style="font-size: 1.5rem; font-weight: 800; color: #fff;">
+            B. Training &amp; Benchmark Datasets
+          </h3>
+          <p style="color: var(--text-dim); font-size: 0.88rem; margin-top: 0.25rem;">
+            Trained on a balanced sample of about 2,000 videos from three datasets, validated on videos of people the model never saw in training
+          </p>
+        </div>
+        <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--acid-yellow); background: var(--acid-subtle); padding: 0.25rem 0.75rem; border-radius: var(--radius-pill);">
+          3 DATASETS
+        </span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+        <!-- Dataset 1: FaceForensics++ -->
+        <div class="card" style="padding: 1.75rem; display: flex; flex-direction: column;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.85rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan-primary); background: var(--cyan-subtle); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">ICCV 2019</span>
+            <span style="font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #fff;">400 real + 400 fake used</span>
+          </div>
+          <h4 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">FaceForensics++ (FF++)</h4>
+          <p style="color: var(--text-dim); font-size: 0.88rem; line-height: 1.5; margin-bottom: 1.25rem; flex-grow: 1;">
+            Encompasses four manipulation techniques: Deepfakes, Face2Face, FaceSwap, and NeuralTextures, tested under raw, light (c23), and heavy compression (c40).
+          </p>
+          <div style="border-top: 1px solid var(--glass-border); padding-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; display: flex; justify-content: space-between;">
+            <span style="color: var(--text-darker);">Validation AUC:</span>
+            <strong style="color: var(--cyan-primary);"><span data-ds-auc="FF++">—</span></strong>
+          </div>
+        </div>
+
+        <!-- Dataset 2: DeepFake Detection (DFD) -->
+        <div class="card" style="padding: 1.75rem; display: flex; flex-direction: column;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.85rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: #c4b5fd; background: rgba(139, 92, 246, 0.15); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">Google &amp; Jigsaw</span>
+            <span style="font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #fff;">600 used</span>
+          </div>
+          <h4 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">DeepFake Detection (DFD)</h4>
+          <p style="color: var(--text-dim); font-size: 0.88rem; line-height: 1.5; margin-bottom: 1.25rem; flex-grow: 1;">
+            Large-scale synthetic dataset of consenting actors recorded in varied indoor and outdoor lighting environments with diverse head orientations and speech cadences.
+          </p>
+          <div style="border-top: 1px solid var(--glass-border); padding-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; display: flex; justify-content: space-between;">
+            <span style="color: var(--text-darker);">Validation AUC:</span>
+            <strong style="color: #c4b5fd;"><span data-ds-auc="DFD">—</span></strong>
+          </div>
+        </div>
+
+        <!-- Dataset 3: Celeb-DF v2 -->
+        <div class="card" style="padding: 1.75rem; display: flex; flex-direction: column;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.85rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--acid-yellow); background: var(--acid-subtle); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">High-Resolution</span>
+            <span style="font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #fff;">~600 used</span>
+          </div>
+          <h4 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Celeb-DF (v2)</h4>
+          <p style="color: var(--text-dim); font-size: 0.88rem; line-height: 1.5; margin-bottom: 1.25rem; flex-grow: 1;">
+            Known as the gold standard benchmark with reduced visual artifacts, mimicking real-world malicious deepfakes with refined color blending and natural motion blur.
+          </p>
+          <div style="border-top: 1px solid var(--glass-border); padding-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; display: flex; justify-content: space-between;">
+            <span style="color: var(--text-darker);">Validation AUC:</span>
+            <strong style="color: var(--acid-yellow);"><span data-ds-auc="Celeb-DF">—</span></strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION C: EVALUATION METRICS & CONFUSION MATRIX
+         ==================================================================== -->
+    <section style="margin-bottom: 4rem;">
+      <h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 1.5rem;">
+        C. Quantitative Performance
+      </h3>
+
+      <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem;">
+        <!-- Metrics Table -->
+        <div class="card" style="padding: 1.75rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--cyan-primary); margin-bottom: 1rem; text-transform: uppercase; font-weight: 700;">
+            VALIDATION RESULTS (LIVE FROM THE TRAINED MODEL)
+          </div>
+          <table class="data-table">
+            <thead><tr><th>Dataset (validation)</th><th>Accuracy</th><th>AUC</th><th>Videos</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Overall</strong></td><td data-stat="acc" style="font-family: var(--font-mono); font-weight: 700;">—</td><td data-stat="auc" style="font-family: var(--font-mono); font-weight: 700;">—</td><td style="font-family: var(--font-mono);">all</td></tr>
+              <tr><td>FF++</td><td data-ds-acc="FF++" style="font-family: var(--font-mono);">—</td><td data-ds-auc="FF++" style="font-family: var(--font-mono);">—</td><td data-ds-n="FF++" style="font-family: var(--font-mono);">—</td></tr>
+              <tr><td>Celeb-DF</td><td data-ds-acc="Celeb-DF" style="font-family: var(--font-mono);">—</td><td data-ds-auc="Celeb-DF" style="font-family: var(--font-mono);">—</td><td data-ds-n="Celeb-DF" style="font-family: var(--font-mono);">—</td></tr>
+              <tr><td>DFD</td><td data-ds-acc="DFD" style="font-family: var(--font-mono);">—</td><td data-ds-auc="DFD" style="font-family: var(--font-mono);">—</td><td data-ds-n="DFD" style="font-family: var(--font-mono);">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card" style="padding: 1.75rem; display: flex; flex-direction: column; justify-content: center;">
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--acid-yellow); margin-bottom: 0.75rem; text-transform: uppercase; font-weight: 700;">How to read this</div>
+          <p style="color: var(--text-dim); font-size: 0.88rem; line-height: 1.6;">Validation videos belong to people that were not used for training. These numbers come from a small balanced sample, so they are a project-level estimate and not a certified benchmark.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION D: RESEARCH REFERENCES (Directly from PPT Slide 6)
+         ==================================================================== -->
+    <section id="research" style="margin-bottom: 5rem;">
+      <h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 1.5rem;">
+        D. Academic Research &amp; Citations
+      </h3>
+
+      <div class="card" style="padding: 2rem;">
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <!-- Citation 1 -->
+          <div style="display: flex; align-items: flex-start; gap: 1rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 1.25rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--cyan-primary); font-weight: 700;">[1]</span>
+            <div>
+              <h5 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem;">
+                FaceForensics++: Learning to Detect Manipulated Facial Images
+              </h5>
+              <p style="color: var(--text-dim); font-size: 0.88rem; margin-bottom: 0.35rem;">
+                A. R&ouml;ssler, D. Cozzolino, L. Verdoliva, C. Riess, J. Thies, and M. Nie&szlig;ner &bull; <em>IEEE International Conference on Computer Vision (ICCV)</em>, 2019.
+              </p>
+              <a href="https://arxiv.org/abs/1901.08971" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-primary); font-size: 0.82rem; font-family: var(--font-mono); text-decoration: none;">
+                arXiv:1901.08971 &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- Citation 2 -->
+          <div style="display: flex; align-items: flex-start; gap: 1rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 1.25rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--cyan-primary); font-weight: 700;">[2]</span>
+            <div>
+              <h5 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem;">
+                EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks
+              </h5>
+              <p style="color: var(--text-dim); font-size: 0.88rem; margin-bottom: 0.35rem;">
+                M. Tan and Q. V. Le &bull; <em>International Conference on Machine Learning (ICML)</em>, 2019.
+              </p>
+              <a href="https://arxiv.org/abs/1905.11946" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-primary); font-size: 0.82rem; font-family: var(--font-mono); text-decoration: none;">
+                arXiv:1905.11946 &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- Citation 3 -->
+          <div style="display: flex; align-items: flex-start; gap: 1rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 1.25rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--cyan-primary); font-weight: 700;">[3]</span>
+            <div>
+              <h5 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem;">
+                DeepFake Detection Dataset (DFD)
+              </h5>
+              <p style="color: var(--text-dim); font-size: 0.88rem; margin-bottom: 0.35rem;">
+                Google Inc. and Jigsaw &bull; Contributed to the FaceForensics benchmark for automated manipulation detection research.
+              </p>
+              <span style="color: var(--text-darker); font-size: 0.82rem; font-family: var(--font-mono);">
+                Public Forensic Research Repository
+              </span>
+            </div>
+          </div>
+
+          <!-- Citation 4 -->
+          <div style="display: flex; align-items: flex-start; gap: 1rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--cyan-primary); font-weight: 700;">[4]</span>
+            <div>
+              <h5 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem;">
+                Open Source AI Frameworks &amp; Toolkits
+              </h5>
+              <p style="color: var(--text-dim); font-size: 0.88rem;">
+                PyTorch Deep Learning Library &bull; OpenCV Computer Vision Library &bull; MySQL Database Architecture.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Universal Footer -->
+  <footer class="footer-cybergeeks">
+    <div class="footer-cyber-grid">
+      <div>
+        <div class="footer-brand-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-primary)" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          <span>CYBER<span style="color: var(--cyan-primary);">GEEKS</span></span>
+        </div>
+        <div class="footer-brand-tagline">Digital Trust. Intelligent Defense.</div>
+        <p class="footer-brand-desc">
+          Automated spatio-temporal deep-learning platform engineered to expose synthetic video deception, GAN face manipulation, and media fraud with frame-level explainability.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="detect.html">Detection Lab</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="login.html">Sign In / User Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Information</div>
+        <ul class="footer-links-list">
+          <li><a href="about.html">About Us &amp; Contact</a></li>
+          <li><a href="security.html">Privacy &amp; Security</a></li>
+          <li><a href="technology.html#datasets">Datasets &amp; Benchmarks</a></li>
+          <li><a href="technology.html#research">Research Papers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Contact &amp; Connect</div>
+        <ul class="footer-links-list">
+          <li>
+            <a href="mailto:wrotefiction@gmail.com" title="Email Riya Maurya" style="word-break: break-all;">
+              ✉ wrotefiction@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="mailto:udgeethkaushik7@gmail.com" title="Email Udgeeth Kaushik" style="word-break: break-all;">
+              ✉ udgeethkaushik7@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://in.linkedin.com/in/udgeeth-kaushik-a733a6327" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-primary);">
+              🔗 Udgeeth Kaushik (LinkedIn)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/riya-maurya-53b443347" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-primary);">
+              🔗 Riya Maurya (LinkedIn)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>&copy; 2026 CYBERGEEKS. AI-BASED FAKE VIDEO DETECTION SYSTEM.</div>
+      <div>Theme: AI and Cybersecurity &bull; Neural Media Forensics</div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+<script src="js/modelstats.js"></script>
+</body>
+</html>

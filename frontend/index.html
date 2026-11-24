@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CYBERGEEKS - AI-Powered Digital Forensics &amp; Deepfake Detection</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background 3D Ambient Chromatic Orbs -->
+  <div class="liquid-ambient-canvas">
+    <div class="liquid-orb orb-primary"></div>
+    <div class="liquid-orb orb-secondary"></div>
+    <div class="liquid-orb orb-tertiary"></div>
+  </div>
+
+  <!-- Navigation Bar (Populated dynamically by auth.js) -->
+  <header class="navbar">
+    <div class="nav-container">
+      <!-- Injected by auth.js -->
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================================================================
+         SECTION 1: HERO SECTION WITH AI FACE-SCANNING VISUAL (DuckDuckGoose style)
+         ==================================================================== -->
+    <section class="hero-face-scan-wrapper">
+      <!-- Left Hero Typography -->
+      <div>
+        <!-- Tag -->
+        <div style="display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(0, 240, 255, 0.08); border: 1px solid var(--cyan-border); padding: 0.35rem 1rem; border-radius: 9999px; margin-bottom: 1.5rem;">
+          <span class="status-dot-active" style="background: var(--cyan-primary); box-shadow: 0 0 10px var(--cyan-primary);"></span>
+          <span style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: var(--cyan-primary); letter-spacing: 0.08em; text-transform: uppercase;">
+            AI-POWERED DIGITAL FORENSICS
+          </span>
+        </div>
+
+        <!-- Big Punchy Headline -->
+        <h1 style="font-size: 3.4rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 0.5rem; color: #fff;">
+          DON'T TRUST WHAT YOU SEE.<br>
+          <span style="background: linear-gradient(135deg, var(--cyan-primary) 0%, #a855f7 60%, var(--acid-yellow) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            VERIFY WHAT YOU WATCH.
+          </span>
+        </h1>
+
+        <!-- Subheading -->
+        <p style="font-size: 1.15rem; color: var(--text-silver); margin: 1.25rem 0 2rem; line-height: 1.65; max-width: 540px;">
+          Detect manipulated videos with intelligent AI-powered analysis and frame-level forensic insights. Powered by <strong>EfficientNet-B0</strong> and <strong>BiLSTM</strong> temporal sequence networks.
+        </p>
+
+        <!-- CTAs -->
+        <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.25rem;">
+          <a href="detect.html" class="btn-try-demo-liquid" style="background: linear-gradient(135deg, var(--cyan-primary) 0%, #0284c7 100%); color: #000; font-weight: 800;">
+            <span>Analyze a Video &rarr;</span>
+          </a>
+          <a href="technology.html" class="btn btn-secondary" style="border-radius: var(--radius-pill); padding: 0.8rem 1.6rem; font-weight: 600;">
+            Explore Technology
+          </a>
+        </div>
+
+        <!-- 4 Quick Engine Badges -->
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; max-width: 480px;">
+          <div style="display: flex; align-items: center; gap: 0.6rem; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 0.6rem 0.85rem; border-radius: var(--radius-sm);">
+            <span style="color: var(--cyan-primary);">&#x25C7;</span>
+            <span style="font-size: 0.82rem; font-weight: 600; color: #fff;">Frame Analysis</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.6rem; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 0.6rem 0.85rem; border-radius: var(--radius-sm);">
+            <span style="color: #a855f7;">&#x2736;</span>
+            <span style="font-size: 0.82rem; font-weight: 600; color: #fff;">AI Intelligence</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.6rem; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 0.6rem 0.85rem; border-radius: var(--radius-sm);">
+            <span style="color: var(--acid-yellow);">&#x25B3;</span>
+            <span style="font-size: 0.82rem; font-weight: 600; color: #fff;">Risk Assessment</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.6rem; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); padding: 0.6rem 0.85rem; border-radius: var(--radius-sm);">
+            <span style="color: #10b981;">&#x2714;</span>
+            <span style="font-size: 0.82rem; font-weight: 600; color: #fff;">Forensic Reports</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Cyber Face Scanning Visual (ClonVirtual & DuckDuckGoose inspired) -->
+      <div class="hero-face-viewport">
+        <div class="hero-scan-grid"></div>
+        <div class="hero-scan-laser"></div>
+
+        <!-- Top HUD Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; z-index: 5;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.76rem; color: var(--cyan-primary);">
+            <span class="status-dot-active" style="background: var(--cyan-primary);"></span>
+            <span>AI DETECTION ENGINE</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #10b981; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill);">
+            STATUS // READY
+          </span>
+        </div>
+
+        <!-- Center 3D Facial Mesh & Landmark Hologram -->
+        <div class="hero-face-avatar-box">
+          <!-- Holographic Cyber Head SVG with Facial Mesh & Target Nodes -->
+          <svg viewBox="0 0 320 320" width="100%" height="100%" style="overflow: visible;">
+            <defs>
+              <linearGradient id="cyberMeshGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.75"/>
+                <stop offset="100%" stop-color="#dfff00" stop-opacity="0.85"/>
+              </linearGradient>
+              <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+
+            <!-- Face Contour Polygon Mesh Wireframe -->
+            <path d="M 160 50 L 210 70 L 235 110 L 245 160 L 230 220 L 195 260 L 160 275 L 125 260 L 90 220 L 75 160 L 85 110 L 110 70 Z" fill="none" stroke="rgba(0, 240, 255, 0.25)" stroke-width="1.2" stroke-dasharray="3 3"/>
+
+            <!-- Inner Facial Triangulation Lines -->
+            <polygon points="160,50 160,110 200,105 210,70" fill="none" stroke="rgba(139, 92, 246, 0.3)" stroke-width="1"/>
+            <polygon points="160,50 160,110 120,105 110,70" fill="none" stroke="rgba(139, 92, 246, 0.3)" stroke-width="1"/>
+            <polygon points="120,105 160,110 160,150 115,145" fill="none" stroke="rgba(0, 240, 255, 0.35)" stroke-width="1"/>
+            <polygon points="200,105 160,110 160,150 205,145" fill="none" stroke="rgba(0, 240, 255, 0.35)" stroke-width="1"/>
+            
+            <!-- Eyes & Nose Bridges -->
+            <polygon points="115,145 160,150 160,195 130,190" fill="none" stroke="rgba(223, 255, 0, 0.35)" stroke-width="1"/>
+            <polygon points="205,145 160,150 160,195 190,190" fill="none" stroke="rgba(223, 255, 0, 0.35)" stroke-width="1"/>
+            
+            <!-- Mouth & Chin Wireframe -->
+            <polygon points="130,190 160,195 160,230 135,225" fill="none" stroke="rgba(139, 92, 246, 0.4)" stroke-width="1"/>
+            <polygon points="190,190 160,195 160,230 185,225" fill="none" stroke="rgba(139, 92, 246, 0.4)" stroke-width="1"/>
+            <polygon points="135,225 160,230 160,275 125,260" fill="none" stroke="rgba(0, 240, 255, 0.4)" stroke-width="1"/>
+            <polygon points="185,225 160,230 160,275 195,260" fill="none" stroke="rgba(0, 240, 255, 0.4)" stroke-width="1"/>
+
+            <!-- Key Landmark Points (Face crop) -->
+            <circle cx="125" cy="130" r="4" fill="#00f0ff" filter="url(#glowFilter)"/>
+            <circle cx="195" cy="130" r="4" fill="#00f0ff" filter="url(#glowFilter)"/>
+            <circle cx="160" cy="175" r="4" fill="#dfff00" filter="url(#glowFilter)"/>
+            <circle cx="135" cy="220" r="4" fill="#ff3366" filter="url(#glowFilter)"/>
+            <circle cx="185" cy="220" r="4" fill="#ff3366" filter="url(#glowFilter)"/>
+
+            <!-- Animated Radar Target Ring around Left Eye -->
+            <circle cx="125" cy="130" r="14" fill="none" stroke="#00f0ff" stroke-width="1.2" stroke-dasharray="2 3">
+              <animateTransform attributeName="transform" type="rotate" from="0 125 130" to="360 125 130" dur="8s" repeatCount="indefinite"/>
+            </circle>
+
+            <!-- Anomaly Heatspot Forehead -->
+            <circle cx="160" cy="75" r="16" fill="rgba(255, 51, 102, 0.2)" stroke="#ff3366" stroke-width="1.5" stroke-dasharray="3 3"/>
+          </svg>
+
+          <!-- Floating Inspection Callout Badges -->
+        </div>
+
+        <!-- Bottom Pipeline Ticker -->
+        <div style="background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); padding: 0.65rem 1rem; border-radius: var(--radius-sm); z-index: 5;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); margin-bottom: 0.2rem;">
+            FORENSIC PIPELINE
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--cyan-primary); font-weight: 700;">
+            Video &rarr; Frame Extraction &rarr; EfficientNet &rarr; BiLSTM &rarr; Risk Analysis
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2: TRUST INDICATORS & KEY CAPABILITIES
+         ==================================================================== -->
+    <div style="max-width: 1200px; margin: 0 auto 4rem; padding: 0 1.5rem;">
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;">
+        <div class="stat-card" style="border-color: var(--cyan-border);">
+          <div class="stat-icon" style="background: rgba(0, 240, 255, 0.1); color: var(--cyan-primary); border-color: var(--cyan-border);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div>
+            <div class="stat-value" style="color: var(--cyan-primary);">3</div>
+            <div class="stat-label">Datasets Used (FF++, Celeb-DF, DFD)</div>
+          </div>
+        </div>
+
+        <div class="stat-card" style="border-color: rgba(139, 92, 246, 0.3);">
+          <div class="stat-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <div>
+            <div class="stat-value" style="color: #c4b5fd;"><span data-stat="auc">—</span></div>
+            <div class="stat-label">Validation AUC (held-out people)</div>
+          </div>
+        </div>
+
+        <div class="stat-card" style="border-color: var(--acid-border);">
+          <div class="stat-icon" style="background: rgba(223, 255, 0, 0.1); color: var(--acid-yellow); border-color: var(--acid-border);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div>
+            <div class="stat-value" style="color: var(--acid-yellow);">16</div>
+            <div class="stat-label">Face Frames Analysed Per Video</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div>
+            <div class="stat-value" style="color: #6ee7b7;">Private</div>
+            <div class="stat-label">Each User Sees Only Their Own History</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SECTION 3: CORE FORENSIC FOCUS (CLEAN & STREAMLINED)
+         ==================================================================== -->
+    <section class="container" style="margin-bottom: 4.5rem;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+        <!-- The Challenge -->
+        <div class="card" style="padding: 1.75rem 2rem; border-color: rgba(255, 51, 102, 0.2); background: rgba(14, 10, 18, 0.5);">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #ff99b3; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.5rem;">
+            The Threat
+          </div>
+          <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">
+            Generative Synthetic Media
+          </h3>
+          <p style="color: var(--text-dim); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Deepfakes created with GANs and diffusion models produce imperceptible frame manipulations that easily deceive human visual inspection.
+          </p>
+        </div>
+
+        <!-- The Solution -->
+        <div class="card" style="padding: 1.75rem 2rem; border-color: var(--cyan-border); background: rgba(8, 16, 26, 0.5);">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan-primary); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.5rem;">
+            The Solution
+          </div>
+          <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">
+            Dual-Stream Deep Forensics
+          </h3>
+          <p style="color: var(--text-dim); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Automated spatial feature analysis (EfficientNet-B0) paired with temporal sequence recurrence (BiLSTM) for frame-level verification.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 4: HOW OUR TECHNOLOGY WORKS (8-STAGE PIPELINE FROM PPT)
+         ==================================================================== -->
+    <section class="container" style="margin-bottom: 5rem;">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--acid-yellow); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;">
+          NEURAL IMPLEMENTATION METHODOLOGY
+        </span>
+        <h2 style="font-size: 2.4rem; font-weight: 800; color: #fff; margin-top: 0.35rem;">
+          How The AI Detection System Works
+        </h2>
+        <p style="color: var(--text-dim); font-size: 1rem; max-width: 600px; margin: 0.5rem auto 0;">
+          Every submitted video is processed through an automated 8-stage forensic pipeline producing frame-level evidence and risk certification.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;">
+        <!-- Step 1 -->
+        <div class="card" style="padding: 1.5rem;">
+          <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--cyan-primary); background: var(--cyan-subtle); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">STAGE 01</span>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0.85rem 0 0.35rem;">Secure Account</h4>
+          <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">Role-based authentication with optional 2FA verification for investigative audit tracking.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="card" style="padding: 1.5rem;">
+          <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--cyan-primary); background: var(--cyan-subtle); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">STAGE 02</span>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0.85rem 0 0.35rem;">Video Ingestion</h4>
+          <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">Drag-and-drop submission supporting MP4, AVI, MOV, MKV up to 50 MB with SHA-256 integrity validation.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="card" style="padding: 1.5rem;">
+          <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--cyan-primary); background: var(--cyan-subtle); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">STAGE 03</span>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0.85rem 0 0.35rem;">Extract Frames</h4>
+          <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">OpenCV engine executes uniform stride sampling across video timecodes preserving temporal continuity.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="card" style="padding: 1.5rem;">
+          <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--cyan-primary); background: var(--cyan-subtle); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">STAGE 04</span>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0.85rem 0 0.35rem;">Face Crop &amp; Align</h4>
+          <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">OpenCV face detection finds the face in each sampled frame and crops it to a 224&times;224 RGB image.</p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="card" style="padding: 1.5rem;">
+          <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--acid-yellow); background: var(--acid-subtle); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">STAGE 05</span>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0.85rem 0 0.35rem;">EfficientNet-B0</h4>
+          <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">Deep CNN extracts 1280-dim feature vectors identifying blending borders, GAN texture residues, and warping.</p>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="card" style="padding: 1.5rem;">
+          <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--acid-yellow); background: var(--acid-subtle); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">STAGE 06</span>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0.85rem 0 0.35rem;">BiLSTM Modeling</h4>
+          <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">Bidirectional recurrent units analyze frame-to-frame physiological consistency (eye blinks, head movement).</p>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="card" style="padding: 1.5rem;">
+          <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--acid-yellow); background: var(--acid-subtle); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">STAGE 07</span>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0.85rem 0 0.35rem;">Risk Scoring</h4>
+          <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">A sigmoid output gives the overall fake probability, mapped to Low (&lt;35%), Medium (35&ndash;60%) or High (&ge;60%) risk.</p>
+        </div>
+
+        <!-- Step 8 -->
+        <div class="card" style="padding: 1.5rem;">
+          <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--acid-yellow); background: var(--acid-subtle); padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); font-weight: 700;">STAGE 08</span>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0.85rem 0 0.35rem;">Forensic Report</h4>
+          <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">Generates explainable keyframe telemetry, timeline anomaly curve, and downloadable audit PDF dossier.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 5: DEEPFAKE INTELLIGENCE CENTER (EXPLAINABLE FORENSICS)
+         ==================================================================== -->
+    <section class="container" style="margin-bottom: 5rem;">
+      <div class="card" style="padding: 2.5rem; border-color: rgba(139, 92, 246, 0.35); background: radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, rgba(8, 14, 26, 0.9) 70%);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem;">
+          <div>
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #c4b5fd; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.4rem;">
+              EXPLAINABLE AI ARCHITECTURE
+            </div>
+            <h3 style="font-size: 2rem; font-weight: 800; color: #fff;">Deepfake Intelligence Center</h3>
+            <p style="color: var(--text-dim); max-width: 600px; margin-top: 0.35rem;">
+              Instead of a black-box "Real or Fake" verdict, CYBERGEEKS provides complete forensic transparency for analysts and reviewers.
+            </p>
+          </div>
+          <a href="detect.html" class="btn btn-primary" style="padding: 0.65rem 1.4rem;">
+            Test In Detection Lab &rarr;
+          </a>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+          <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid var(--glass-border); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="color: var(--cyan-primary); font-size: 1.4rem; margin-bottom: 0.5rem;">&#x25CE;</div>
+            <h4 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem;">Which Frames Look Suspicious?</h4>
+            <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">Frame-by-frame risk scoring isolates specific seconds where synthetic manipulation appears.</p>
+          </div>
+
+          <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid var(--glass-border); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="color: var(--acid-yellow); font-size: 1.4rem; margin-bottom: 0.5rem;">&#x22C8;</div>
+            <h4 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem;">Where Does Probability Spike?</h4>
+            <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">Interactive timeline curve graphs BiLSTM temporal inconsistency across keyframe sequences.</p>
+          </div>
+
+          <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid var(--glass-border); padding: 1.25rem; border-radius: var(--radius-md);">
+            <div style="color: #ff3366; font-size: 1.4rem; margin-bottom: 0.5rem;">&#x25C9;</div>
+            <h4 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem;">What Anomalies Occurred?</h4>
+            <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">Identifies boundary blending, GAN residual noise, unnatural blink rates, and lip-sync desynchronization.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 6: CALL TO ACTION
+         ==================================================================== -->
+    <section class="container" style="text-align: center; margin-bottom: 5rem;">
+      <div style="padding: 4rem 2rem; background: linear-gradient(135deg, rgba(0, 240, 255, 0.08) 0%, rgba(139, 92, 246, 0.12) 100%); border: 1px solid var(--cyan-border); border-radius: var(--radius-lg); max-width: 860px; margin: 0 auto;">
+        <h2 style="font-size: 2.6rem; font-weight: 800; color: #fff; margin-bottom: 1rem;">
+          Verify a Video Now
+        </h2>
+        <p style="color: var(--text-silver); font-size: 1.1rem; max-width: 580px; margin: 0 auto 2rem; line-height: 1.6;">
+          Upload any MP4, AVI, or MOV video clip to experience real-time neural face extraction, frame telemetry, and instant forensic audit reports.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="detect.html" class="btn btn-primary" style="padding: 0.85rem 2rem; font-size: 1rem;">
+            Open AI Detection Lab &rarr;
+          </a>
+          <a href="login.html" class="btn btn-secondary" style="padding: 0.85rem 1.8rem; font-size: 1rem;">
+            Sign In / Register
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       UNIVERSAL FOOTER (Matching Specification Item 14)
+       ==================================================================== -->
+  <footer class="footer-cybergeeks">
+    <div class="footer-cyber-grid">
+      <div>
+        <div class="footer-brand-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-primary)" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          <span>CYBER<span style="color: var(--cyan-primary);">GEEKS</span></span>
+        </div>
+        <div class="footer-brand-tagline">Digital Trust. Intelligent Defense.</div>
+        <p class="footer-brand-desc">
+          Automated spatio-temporal deep-learning platform engineered to expose synthetic video deception, GAN face manipulation, and media fraud with frame-level explainability.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="detect.html">Detection Lab</a></li>
+          <li><a href="technology.html">Technology</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="login.html">Sign In / User Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Information</div>
+        <ul class="footer-links-list">
+          <li><a href="about.html">About Us &amp; Contact</a></li>
+          <li><a href="security.html">Privacy &amp; Security</a></li>
+          <li><a href="technology.html#datasets">Datasets &amp; Benchmarks</a></li>
+          <li><a href="technology.html#research">Research Papers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Contact &amp; Connect</div>
+        <ul class="footer-links-list">
+          <li>
+            <a href="mailto:wrotefiction@gmail.com" title="Email Riya Maurya" style="word-break: break-all;">
+              ✉ wrotefiction@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="mailto:udgeethkaushik7@gmail.com" title="Email Udgeeth Kaushik" style="word-break: break-all;">
+              ✉ udgeethkaushik7@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://in.linkedin.com/in/udgeeth-kaushik-a733a6327" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-primary);">
+              🔗 Udgeeth Kaushik (LinkedIn)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/riya-maurya-53b443347" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-primary);">
+              🔗 Riya Maurya (LinkedIn)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>&copy; 2026 CYBERGEEKS. AI-BASED FAKE VIDEO DETECTION SYSTEM.</div>
+      <div>Theme: AI and Cybersecurity &bull; Neural Media Forensics</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+<script src="js/modelstats.js"></script>
+</body>
+</html>
