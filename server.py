@@ -64,6 +64,7 @@ MAX_SECONDS = float(os.environ.get("MAX_VIDEO_SECONDS", "60"))
 FRAME_CHOICES = (10, 15, 20, 30)
 VIDEO_EXT = {".mp4", ".avi", ".mov", ".mkv"}
 SUSPICIOUS = 0.5
+CNN_CHUNK = int(os.environ.get("CNN_CHUNK", "2"))  # frames per CNN pass (lower = less RAM)
 MAX_QUEUE = 5
 REQUIRED_TABLES = {"users", "analyses", "reports", "audit_log", "sessions", "analysis_frames"}
 USERNAME_RE = re.compile(r"^[A-Za-z0-9_]{3,30}$")
@@ -322,7 +323,7 @@ def read_frames(path, n):
         cap.set(cv2.CAP_PROP_POS_FRAMES, int(i))
         ok, f = cap.read()
         if ok:
-            out.append((int(i), (i / fps) if fps > 0 else 0.0, f))
+            out.append([int(i), (i / fps) if fps > 0 else 0.0, f])
     cap.release()
     return out, ((total / fps) if fps > 0 else 0.0)
 
@@ -380,7 +381,11 @@ def score_frames(model, crops):
     with torch.no_grad():
         x = torch.from_numpy(crops_to_array(crops)).unsqueeze(0)
         b, t, c, h, w = x.shape
-        feats = model.pool(model.features(x.reshape(b * t, c, h, w))).flatten(1).reshape(b, t, -1)
+        flat = x.reshape(b * t, c, h, w)
+        # Run the CNN a few frames at a time: same result (eval mode), far less peak memory on small servers.
+        parts = [model.pool(model.features(flat[i:i + CNN_CHUNK])).flatten(1) for i in range(0, b * t, CNN_CHUNK)]
+        feats = torch.cat(parts).reshape(b, t, -1)
+        del flat, parts
         seq, _ = model.lstm(feats)
         logits = model.fc(seq).squeeze(-1)[0]
         return float(torch.sigmoid(logits.mean())), [float(v) for v in torch.sigmoid(logits)]
@@ -526,6 +531,8 @@ def run_job(job, path, filename, n_frames, username):
             records.append({"idx": idx, "time": ts, "base": base, "box": sbox, "prob": None})
             if crop is not None:
                 crops.append(crop)
+            frames[i] = None  # release the full-size frame, only the small copy is kept
+            del fr
             el = time.time() - job["t0"]
             job.update(frames_done=i + 1, faces_found=len(crops), eta_sec=el / (i + 1) * (len(frames) - i - 1))
         if len(crops) < 3:
